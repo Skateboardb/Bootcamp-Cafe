@@ -25,7 +25,7 @@ app.get("/reserve", function(req, res) {
   res.sendFile(path.join(__dirname, "view/reserve.html"));
 });
 
-app.get("/tables", function(req, res) {
+app.get("/table", function(req, res) {
   res.sendFile(path.join(__dirname, "view/tables.html"));
 });
 
@@ -38,7 +38,7 @@ app.get("/api/waitlist", function(req, res) {
   res.json(waitlist);
 });
 
-app.post("/reserve", function(req, res) {
+app.post("/reserve" && "/api/tables", function(req, res) {
   var newReservation = req.body;
   console.log(newReservation);
   if (reservations.length < 5) {
@@ -50,13 +50,3 @@ app.post("/reserve", function(req, res) {
   }
 });
 
-app.post("/api/reserved", function(req, res){
-    var newReservation = req.body;
-    if(reservations.length < 5){
-        reservations.push(newReservation);
-        res.json(true);
-    }else{
-        waitlist.push(newReservation);
-        res.json(false);
-    }
-})
