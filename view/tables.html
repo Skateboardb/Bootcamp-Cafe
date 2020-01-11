@@ -55,3 +55,45 @@
   </div>
 
 </body>
+<footer class="footer">
+    <div class="container">
+      <p>Control Panel</p>
+      <p><a href="#" id="clear">Clear Table</a> | <a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a> | <a href="https://github.com/Skateboardb/Bootcamp-Cafe.git">GitHub Repo</a></p>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+
+
+
+<script type="text/javascript">
+
+  //  jQuery downloads the data from our server
+
+
+  function runTableQuery() {
+
+    // Here we get the location of the main page.
+    
+    var currentURL = window.location.origin;
+
+    // The AJAX function uses the URL of our API 
+    $.ajax({ url: currentURL + "/api/tables", method: "GET" })
+    .done(function(tableData) {
+
+      // Here we are logging the URL 
+      console.log("------------------------------------");
+      console.log("URL: " + currentURL + "/api/tables");
+      console.log("------------------------------------");
+
+      // Here we then log the Data to show up as an object.
+      console.log(tableData);
+      console.log("------------------------------------");
+
+   
+
+
+</script>
+</html>
