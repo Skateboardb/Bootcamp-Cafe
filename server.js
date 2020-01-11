@@ -18,19 +18,29 @@ app.listen(PORT, function(){
 })
 
 app.get("/", function(req, res){
-    res.sendFile(path.join(__dirname, "home.html"));
+    res.sendFile(path.join(__dirname, "view/home.html"));
 });
 
 app.get("/reserve", function(req, res){
-    res.sendFile(path.join(__dirname, "reserve.html"));
+    res.sendFile(path.join(__dirname, "view/reserve.html"));
 });
 //post function 
 
 app.get("/table", function (req, res){
-    res.sendFile(path.join(__dirname, "tables.html"));
+    res.sendFile(path.join(__dirname, "view/tables.html"));
 });
 
-app.post("/reserve", function(req, res){
+app.get("/api/tables", function(req, res){
+    res.sendFile(path.join(__dirname, "api/reserved.html"));
+    res.json(reservations);
+})
+
+app.get("/api/waitlist", function(req, res){
+    res.sendFile(path.join(__dirname, "api/waitlist.html"));
+    res.json(waitlist);
+})
+
+app.post("/reserve" && "/api/reserved", function(req, res){
     var newReservation = req.body;
     console.log(newReservation);
     if (reservations.length < 5){
@@ -41,3 +51,14 @@ app.post("/reserve", function(req, res){
         res.json(false);
     }
 })
+
+// app.post("/api/reserved", function(req, res){
+//     var newReservation = req.body;
+//     if(reservations.length < 5){
+//         reservations.push(newReservation);
+//         res.json(true);
+//     }else{
+//         waitlist.push(newReservation);
+//         res.json(false);
+//     }
+// })
