@@ -91,9 +91,19 @@
       // Here we then log the Data to show up as an object.
       console.log(tableData);
       console.log("------------------------------------");
+      // Loop through each of the customers
+      for (var i = 0; i < tableData.length; i++) {
 
-   
+        // Create the HTML Great 
+        var tableSection = $("<div>");
+        tableSection.addClass("great");
+        tableSection.attr("id", "tableGreat-" + i + 1);
+        $("#tableSection").append(tableSection);
+
+        var tableNumber = i + 1;
 
 
+        /////////// Display the remaining fields in the HTML
+        
 </script>
 </html>
